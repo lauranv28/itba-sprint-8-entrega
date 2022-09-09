@@ -12,7 +12,7 @@
 | :-: | :-----------------------------: | :----------------------: |
 |  0  | Lopez Gutierrez Daniel Benjamin | [DanielBenjaminLopez][0] |
 |  1  |      Vargas Laura Nazarena      |      [lauranv28][1]      |
-|  1  |  Molina Hidalgo Elias Leonel    |      [Elias-m7][2]       |
+|  2  |  Molina Hidalgo Elias Leonel    |      [Elias-m7][2]       |
 
 [0]: https://github.com/DanielBenjaminLopez
 [1]: https://github.com/lauranv28
