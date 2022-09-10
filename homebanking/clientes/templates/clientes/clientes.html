@@ -1,0 +1,27 @@
+<!--Agrega el bloque extends-->
+{% extends 'login/base.html' %}
+
+<!-- Agregamos el contenido estático -->
+{% load static %}
+
+<!-- Agregamos el título de clientes -->
+{% block title %}Perfil{% endblock %}
+
+<!--Agrega el contenido-->
+{% block content %}
+<div class="container justify-content-center">
+  <div class="row">
+    <div class="col-12">
+      <div class="card bg-light">
+        <div class="card-body">
+          <div class="card-title text-black">
+            <h2 class="fw-bold">Datos</h2>
+          </div>
+          <!-- Añade los datos del usuario -->
+          {% for client in clients %} {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

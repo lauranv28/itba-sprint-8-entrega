@@ -1,0 +1,32 @@
+{% extends 'login/base.html' %}
+
+<!-- Agrega contenido estático-->
+{% load static %}
+
+<!-- Agrega el título -->
+{% block title %} Préstamos {% endblock %}
+
+<!-- Agrega el contenido -->
+{% block content %}
+<div class="container justify-content-center">
+  <div class="row">
+    <div class="col-12">
+      <div class="card bg-light">
+        <div class="card-body">
+          <div class="card-title text-black">
+            <h2 class="fw-bold">Solicitud de préstamos</h2>
+          </div>
+          <!-- Agrega el formulario -->
+          <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+              {{form.as_p}}
+            </table>
+            <input type="submit" value="Enviar" class="btn btn-dark" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
