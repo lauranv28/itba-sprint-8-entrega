@@ -1,7 +1,6 @@
-from datetime import timezone
-from multiprocessing import context
-import re
 from django.shortcuts import render, redirect
+
+from empleados.models import Empleado
 from .models import *
 from .forms import UserRegisterForm
 from django.contrib import messages
@@ -13,27 +12,49 @@ from clientes.models import Cliente
 def register(request):
     """Crear un nuevo usuario"""
     if request.method == 'POST':
-        # Accede a la información enviada a través del form
+        context = {'form': form}
+        #Accede a la información enviada a través del form
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            name = username
-            dni = request.POST.get('dni')
+            #Determinar si es cliente o empleado
+            coe = form.cleaned_data.get('coe')
+            dni = form.cleaned_data.get('dni')
 
-            # Guarda el usuario creado en la db
-            form.save()
-            username = form.cleaned_data['username']
-            # Manda un mensaje al usuario de que su registro fue exitoso
-            messages.success(request, f'Usuario {username} creado')
-
-            # Guarda el usuario como cliente
-            NuevoCliente = Cliente(customer_DNI=dni, username_id=dni)
-            NuevoCliente.save()
-            return redirect('login')
-        # Si se accede a esta ruta por un método get
+            if coe == 'Cliente':
+                try:
+                    newuser = Cliente.objects.get(customer_DNI = dni)
+                    if newuser.user is None:
+                        user = form.save()
+                        newuser.user = user
+                        #Guarda el usuario creado en la db
+                        newuser.save()
+                    else:
+                        messages.error(request, 'Usuario existente')
+                        return render(request, "login/registration/register.html", context)
+                except:
+                    messages.error(request, 'DNI inexistente en base de datos')
+                    return render(request, "login/registration/register.html", context)
+                return redirect('login')
+            elif coe == 'Empleado':
+                try:
+                    newuser = Empleado.objects.get(employee_dni = dni)
+                    if newuser.user is None:
+                        user = form.saveuser()
+                        user.is_staff = True
+                        user.save()
+                        newuser.user = user
+                        #Guarda el usuario creado en la db
+                        newuser.save()
+                    else:
+                        messages.error(request, 'Usuario existente')
+                        return render(request, "login/registration/register.html", context)
+                except:
+                    messages.error(request, 'DNI inexistente en base de datos')
+                    return render(request, "login/registration/register.html", context)
+                return redirect('login')
+    #Si se accede a esta ruta por un método get
     else:
         form = UserRegisterForm()
-    context = {'form': form}
     return render(request, "login/registration/register.html", context)
 
 
