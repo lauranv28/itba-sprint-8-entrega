@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'empleados',
     'movimientos',
     'paginas',
-    
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
