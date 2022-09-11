@@ -29,4 +29,9 @@
     </div>
   </div>
 </div>
+
+<!-- Mensaje de préstamo aprobado o desaprobado -->
+{% if messages %} {% for message in messages %}
+<div class="notification {{ message.tags}}">{{ message }}</div>
+{% endfor %} {% endif %}
 {% endblock %}
