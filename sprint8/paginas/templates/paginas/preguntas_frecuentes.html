@@ -1,0 +1,56 @@
+<!-- Agrega base -->
+{% extends 'login/base.html' %}
+
+<!-- Agrega contenido estático-->
+{% load static %}
+
+<!-- Agrega título -->
+{% block title %}Preguntas frecuentes{% endblock %}
+
+<!-- Agrega contenido -->
+{% block content %}
+<!-- TÍTULO -->
+<h1 class="text-white text-center pt-3 pb-3">PREGUNTAS FRECUENTES</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="card wcolor">
+        <div class="card-body text-black">
+          <div class="row border-bottom mx-1 pb-1">
+            <div class="col-11">Generación de clave y usuario digital</div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row border-bottom mx-1 py-1">
+            <div class="col-11">Token ITBANK</div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row border-bottom mx-1 py-1">
+            <div class="col-11">Cuentas</div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row border-bottom mx-1 py-1">
+            <div class="col-11">Inversiones</div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row border-bottom mx-1 py-1">
+            <div class="col-11">Préstamos</div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row border-bottom mx-1 py-1">
+            <div class="col-11">MODO</div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row border-bottom mx-1 py-1">
+            <div class="col-11">Seguros</div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row mx-1 pt-1">
+            <div class="col-11">Jubilados</div>
+            <div class="col-1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

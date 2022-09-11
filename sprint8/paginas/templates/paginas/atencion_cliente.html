@@ -1,0 +1,100 @@
+<!-- Agrega base -->
+{% extends 'login/base.html' %}
+
+<!-- Agrega contenido estático-->
+{% load static %}
+
+<!-- Agrega título -->
+{% block title %}Atención al cliente{% endblock %}
+
+<!-- Agrega contenido -->
+{% block content %}
+<!-- BIENVENIDA -->
+<h1 class="text-center text-white pt-3 pb-3">ATENCIÓN AL CLIENTE</h1>
+<p class="text-center text-white m-0">
+  ¡Hola! Bienvenido al Centro de Atención al Cliente de ITBANK.
+</p>
+<!-- ESPACIO PARA CONSULTAS O RECLAMOS -->
+<div class="container">
+  <div class="row pt-3">
+    <div class="col-12">
+      <div class="card wcolor">
+        <div class="card-body text-black">
+          <h5>
+            Dejanos tu consulta o reclamo junto con una dirección de correo
+            electrónico y nos pondremos en contacto con vos a la brevedad.
+          </h5>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Correo electrónico</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >¿En qué podemos ayudarte?</label
+            >
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- OTROS CANALES DE ATENCIÓN -->
+<div class="container">
+  <div class="row pt-3 pb-3">
+    <div class="col-12">
+      <div class="card wcolor">
+        <div class="card-body text-black">
+          <h1 class="h2 border-bottom pb-2">Otros canales de atención</h1>
+          <div class="row">
+            <div class="col-6">
+              <h1 class="h4">Atención automática</h1>
+              <p>
+                Comunicate con nosotros las 24 horas los 365 días del año
+                llamando al
+                <a href="tel:0800-XXX-XXX" class="ocolor text-decoration-none"
+                  >0800-XXX-XXXX</a
+                >.
+              </p>
+            </div>
+            <div class="col-6">
+              <h1 class="h4">Atención personalizada</h1>
+              <p>
+                Hablá con un asesor de lunes a viernes de 7:30 a 21:00hs, llamá
+                al
+                <a href="tel:0810-XXX-XXX" class="ocolor text-decoration-none"
+                  >0810-XXX-XXXX</a
+                >.
+              </p>
+            </div>
+            <div class="col-6">
+              <h1 class="h4 mb-2">Sucursales</h1>
+              <p class="mb-1">
+                <a href="{% url 'turnos' %}" class="ocolor text-decoration-none"
+                  >Turnos</a
+                >
+              </p>
+              <p>
+                <a href="#" class="ocolor text-decoration-none">
+                  Sucursales cercanas
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

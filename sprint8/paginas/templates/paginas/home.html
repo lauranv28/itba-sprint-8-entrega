@@ -1,0 +1,117 @@
+<!-- Agrega base -->
+{% extends 'login/base.html' %}
+
+<!-- Agrega contenido estático-->
+{% load static %}
+
+<!-- Agrega título -->
+{% block title %}Home{% endblock %}
+
+<!-- Agrega contenido -->
+{% block content %}
+ <!-- carousel -->
+    <header class="w-100 h-50 bg-dark">
+      <div class="container-fluid h-50 bg-light">
+        <!-- carousel -->
+        <div class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'img/cardcc.jpg' %}" class="d-block w-100" alt="..."/>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-white">Bienvenido a ITBANK</h5>
+                    <a href="{% url 'login' %}" class="btn btn-dark stretched-link">Ingresa a tu cuenta</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img
+                src="{% static 'img/happycc.jpg' %}"
+                class="d-block w-100"
+                alt="..."
+              />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Tu banco de confianza</h5>
+                    <a href="{% url 'atencionclientes' %}" class="btn btn-dark stretched-link">Atención al cliente</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img
+                src="{% static 'img/oldcouplecc.jpg' %}"
+                class="d-block w-100"
+                alt="..."
+              />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Siempre pensando en vos</h5>
+                    <a href="{% url 'beneficios' %}" class="btn btn-dark stretched-link">Conocé beneficios</a>
+                </div>
+            </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+      </div>
+    </header>
+    <!-- /carousel -->
+    <!-- cartas -->
+    <div class="container-fluid bg-light p-3">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-50">
+            <img
+              src="{% static 'img/oldcouplecc.jpg' %}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni facilis ut, vitae harum quibusdam maxime!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-50">
+            <img
+              src="{% static 'img/mancardcc.jpg' %}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni facilis ut, vitae harum quibusdam maxime!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-50">
+            <img src="{% static 'img/happycc.jpg' %}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni facilis ut, vitae harum quibusdam maxime!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-50">
+            <img src="{% static 'img/cardcc.jpg' %}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni facilis ut, vitae harum quibusdam maxime!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /cartas -->
+{% endblock %}

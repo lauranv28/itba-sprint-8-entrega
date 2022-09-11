@@ -1,0 +1,440 @@
+{% extends 'login/base.html' %}
+
+<!-- Agrega los archivos estáticos -->
+{% load static %}
+
+<!-- Agrega el título -->
+{% block title%}Homebanking{% endblock %}
+
+{% block content %}
+{% if messages %} {% for message in messages %}
+<div class="notification {{ message.tags}} text-white text-center fw-bold">{{ message }}</div>
+{% endfor %} {% endif %}
+<!-- COTIZACIONES -->
+<div class="container overflow-hidden position-relative pt-3">
+      <div class="row gy-5">
+        <div class="col-12">
+          <div class="row">
+            <!-- Dólar oficial-->
+            <div class="col-lg-2 col-sm-4 bg-cotiz text-white hotfix">
+              <div class="p-3 text-center">
+                <h5 class="d-inline" id="card1"></h5>
+                <h6 class="text-center">
+                  Compra: $<span id="valor_de_compra1"></span>
+                </h6>
+                <h6 class="text-center">
+                  Venta: $<span id="valor_de_venta1"></span>
+                </h6>
+                <p class="text-center bg-white rounded-pill text-black">
+                  Variacion: <span id="variacion_de_valor1"></span>
+                </p>
+              </div>
+            </div>
+            <!-- Dólar blue-->
+            <div class="col-lg-2 col-sm-4 bg-cotiz text-white hotfix">
+              <div class="p-3 text-center">
+                <h5 class="d-inline" id="card2"></h5>
+                <h6 class="text-center">
+                  Compra: $<span id="valor_de_compra2"></span>
+                </h6>
+                <h6 class="text-center">
+                  Venta: $<span id="valor_de_venta2"></span>
+                </h6>
+                <p class="text-center bg-white rounded-pill text-black">
+                  Variacion: <span id="variacion_de_valor2"></span>
+                </p>
+              </div>
+            </div>
+            <!-- Dólar soja -->
+            <div class="col-lg-2 col-sm-4 bg-cotiz text-white hotfix">
+              <div class="p-3 text-center">
+                <h5 class="d-inline" id="card3"></h5>
+                <h6 class="text-center">
+                  Compra: $<span id="valor_de_compra3"></span>
+                </h6>
+                <h6 class="text-center">
+                  Venta: $<span id="valor_de_venta3"></span>
+                </h6>
+                <p class="text-center bg-white rounded-pill text-black">
+                  Variacion: <span id="variacion_de_valor3"></span>
+                </p>
+              </div>
+            </div>
+            <!-- Dólar contado con liquidación -->
+            <div class="col-lg-2 col-sm-4 bg-cotiz text-white hotfix">
+              <div class="p-3 text-center">
+                <h6 class="d-inline" id="card4"></h5>
+                <h6 class="text-center">
+                  Compra: $<span id="valor_de_compra4"></span>
+                </h6>
+                <h6 class="text-center">
+                  Venta: $<span id="valor_de_venta4"></span>
+                </h6>
+                <p class="text-center bg-white rounded-pill text-black">
+                  Variacion: <span id="variacion_de_valor4"></span>
+                </p>
+              </div>     
+            </div>
+            <!-- Dólar bolsa -->
+            <div class="col-lg-2 col-sm-4 bg-cotiz text-white hotfix">
+              <div class="p-3 text-center">
+                <h5 class="d-inline" id="card5"></h5>
+                <h6 class="text-center">
+                  Compra: $<span id="valor_de_compra5"></span>
+                </h6>
+                <h6 class="text-center">
+                  Venta: $<span id="valor_de_venta5"></span>
+                </h6>
+                <p class="text-center bg-white rounded-pill text-black">
+                  Variacion: <span id="variacion_de_valor5"></span>
+                </p>
+              </div>
+            </div>
+            <!-- Bitcoin -->
+            <div class="col-lg-2 col-sm-4 bg-cotiz text-white hotfix">
+              <div class="p-3 text-center">
+                <h5 class="d-inline" id="card6"></h5>
+                <h6 class="text-center">
+                  Compra: $<span id="valor_de_compra6"></span>
+                </h6>
+                <h6 class="text-center">
+                  Venta: $<span id="valor_de_venta6"></span>
+                </h6>
+                <p class="text-center bg-white rounded-pill text-black">
+                  Variacion: <span id="variacion_de_valor6"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<!-- FIN DE COTIZACIONES -->
+<!-- INFO CARDS -->
+<h3 class="text-center text-white pt-3">INFORMACIÓN DE CUENTA</h3>
+<div class="container justify-content-center pt-3">
+      <div class="row">
+        <div class="col-12 col-lg-6 pe-1">
+          <!-- TARJETAS -->
+          <div class="row pe-0">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <div class="card bg-card-one card-img-top pt-3 ps-1">
+                    <img
+                      src="https://th.bing.com/th/id/R.b7f5bfd5c941e07ab0a5d169008a530d?rik=snutictxYzzWHg&pid=ImgRaw&r=0"
+                      width="70px"
+                    />
+                    <div
+                      class="card-body text-white pt-5 text-center h4 fw-light"
+                    >
+                      **** **** **** XXXX
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card bg-card-two card-img-top pt-3 ps-2">
+                    <img
+                      src="https://www.naty.com/on/demandware.static/-/Library-Sites-NatySharedLibrary/default/dwb64fe6c8/payment-methods_Mastercard.png"
+                      width="50px"
+                      height="26px"
+                    />
+                    <div
+                      class="card-body text-white pt-5 text-center h4 fw-light"
+                    >
+                      **** **** **** XXXX
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- CUENTA -->
+          <div class="col-12 pt-2">
+            <div class="card wcolor">
+              <div class="card-body text-black">
+                <div class="row">
+                  <div class="col-6">
+                    <h1 class="h4 pb-2">Cuenta ($)</h1>
+                    <p class="m-0">Caja de Ahorro</p>
+                    <p class="m-0">XXX-XXXXXX/X</p>
+                  </div>
+                  <div class="col-6">
+                    <h1 class="h4 pb-2 text-end">$ ******.**</h1>
+                    <p class="m-0 text-end">Saldo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- AYUDA -->
+          <div class="row pt-2">
+            <div class="col-12">
+              <div class="card wcolor">
+                <div class="card-body text-black">
+                  <h1 class="h4 mb-2">Ayuda</h1>
+                  <p class="mb-1">
+                    <a
+                      href="{% url 'atencionclientes' %}"
+                      class="ocolor text-decoration-none"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-headset"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"
+                        />
+                      </svg>
+                      Atención al cliente
+                    </a>
+                  </p>
+                  <p>
+                    <a
+                      href="{% url 'preguntasfrecuentes' %}"
+                      class="ocolor text-decoration-none"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-info-circle pb-1"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                        />
+                        <path
+                          d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                        />
+                      </svg>
+                      Preguntas frecuentes
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MOVIMIENTOS -->
+        <div class="col-12 col-lg-4 ps-1 pe-1">
+          <div class="card wcolor">
+            <div class="card-body text-black">
+              <h1 class="h4">Movimientos</h1>
+              <div class="list-group">
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action m-0 px-0"
+                >
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-1 text-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="15"
+                          height="15"
+                          fill="currentColor"
+                          class="bi bi-arrow-right-circle me-1"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="col-5">Transferencia</div>
+                      <div class="col-6 text-end">- $XXX</div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action m-0 px-0"
+                >
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-1 text-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-down-circle"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="col-5">Depósito</div>
+                      <div class="col-6 text-end">$XXX</div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action m-0 px-0"
+                >
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-1 text-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-down-circle"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="col-5">Depósito</div>
+                      <div class="col-6 text-end">$XXX</div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action m-0 px-0"
+                >
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-1 text-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="15"
+                          height="15"
+                          fill="currentColor"
+                          class="bi bi-arrow-right-circle me-1"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="col-5">Transferencia</div>
+                      <div class="col-6 text-end">- $XXX</div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action m-0 px-0"
+                >
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-1 text-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="15"
+                          height="15"
+                          fill="currentColor"
+                          class="bi bi-arrow-right-circle me-1"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="col-5">Transferencia</div>
+                      <div class="col-6 text-end">- $XXX</div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action m-0 px-0"
+                >
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-1 text-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-down-circle"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="col-5">Depósito</div>
+                      <div class="col-6 text-end">$XXX</div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action m-0 px-0"
+                >
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-1 text-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="15"
+                          height="15"
+                          fill="currentColor"
+                          class="bi bi-arrow-right-circle me-1"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="col-5">Transferencia</div>
+                      <div class="col-6 text-end">- $XXXX</div>
+                    </div>
+                  </div>
+                </a>
+                <!-- VER MÁS MOVIMIENTOS -->
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action m-0 px-0"
+                >
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 ocolor text-center">Ver más</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MENÚ -->
+        <div class="col-lg-2 ps-1">
+          <div class="card wcolor">
+            <div class="card-body text-black">
+              <h1 class="h4">Lista</h1>
+              <p>EN CONSTRUCCIÓN</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<script src="{% static 'static/js/fetch_api.js' %}"></script>
+{% endblock %}
