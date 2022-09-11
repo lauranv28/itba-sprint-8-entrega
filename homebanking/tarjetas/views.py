@@ -11,7 +11,7 @@ def tarjetas(request):
 
 
 class TarjetaViewSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = TarjetaSerializer
+    serializer = TarjetaSerializer
     permission_classes = [IsAdminUser]
     lookup_field = 'customer_id'
 
