@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
-
-from empleados.models import Empleado
-from .models import *
-from .forms import UserRegisterForm
 from django.contrib import messages
+from .forms import UserRegisterForm
+from .models import *
+from empleados.models import Empleado
 from clientes.models import Cliente
 
 # Create your views here.
