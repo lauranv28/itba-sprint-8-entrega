@@ -8,5 +8,6 @@ router.register(r'datos_cliente', views.ClienteViewSet, basename='clientdata')
 
 #Las URL de la API ahora las determina automáticamente el enrutador
 urlpatterns = [
-    path('clientes/', include(router.urls), name='clientes'),
+    path('clientes/', views.cliente, name='perfil'),
+    path('api/cliente', include(router.urls), name='cliente'),
 ]

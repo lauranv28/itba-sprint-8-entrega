@@ -75,12 +75,12 @@
               </li>
               <li class="nav-item dropdown">
                 {% if request.user.is_authenticated %}
-                <a class="nav-link" href="{% url 'clientes' %}">Perfil</a>
+                <a class="nav-link" href="{% url 'perfil' %}">Perfil</a>
                 {% endif %}
               </li>
               <li class="nav-item dropdown">
                 {% if request.user.is_authenticated %}
-                <a class="nav-link" href="{% url 'prestamos' %}">Préstamos</a>
+                <a class="nav-link" href="{% url 'loans' %}">Préstamos</a>
                 {% endif %}
               </li>
               <li class="nav-item dropdown">

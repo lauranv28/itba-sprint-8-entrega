@@ -18,7 +18,11 @@
             <h2 class="fw-bold">Datos</h2>
           </div>
           <!-- Añade los datos del usuario -->
-          {% for client in clients %} {% endfor %}
+          {% for client in clients %}
+          <p>.</p>
+          {%if inputDNI == cliente.customer_dni%}
+          <p>{{cliente.customer_dni}}</p>
+          {%endif%} {% endfor %}
         </div>
       </div>
     </div>

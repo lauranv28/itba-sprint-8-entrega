@@ -29,10 +29,10 @@ from paginas.views import atencion_clientes, home, beneficios, preguntas_frecuen
 urlpatterns = [
     path('', home, name='home'),
     path('homebanking/', homebanking, name='homebanking'),
-    path('clientes/', include(clientes.urls), name='clientes'),
-    path('cuentas/', include(cuentas.urls), name='cuentas'),
-    path('prestamos/', include(prestamos.urls), name='prestamos'),
-    path('tarjetas/', include(tarjetas.urls), name='tarjetas'),
+    path('clientes/', include('clientes.urls'), name='cliente'),
+    path('cuentas/', include('cuentas.urls'), name='cuentas'),
+    path('prestamos/', include('prestamos.urls'), name='prestamos'),
+    path('tarjetas/', include('tarjetas.urls'), name='tarjetas'),
     path('login/', LoginView.as_view(template_name='login/registration/login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='login/registration/login.html'), name='logout'),
     path('register/', register, name='register'),
@@ -41,6 +41,6 @@ urlpatterns = [
     path('preguntasfrecuentes/', preguntas_frecuentes, name='preguntasfrecuentes'),
     path('turnos/', turnos, name='turnos'),
     path('admin/', admin.site.urls),
-    path('pps/', include(empleados.urls), name='pps'),
+    path('pps/', include('empleados.urls'), name='pps'),
     path('sucursales/', PublicEndpoint.as_view()),
 ]
