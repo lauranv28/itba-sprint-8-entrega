@@ -11,16 +11,17 @@ from empleados.models import Sucursal
 def register(request):
     '''Crear un nuevo usuario'''
     if request.method == 'POST':
-        context = {'form':form}
+        
         #Accede a la información enviada a través del form
         form = UserRegisterForm(request.POST)
+        
         if form.is_valid():
             #Determinar si es cliente o empleado
             coe = form.cleaned_data.get('coe')
             dni = form.cleaned_data.get('dni')
-            username = User.objects.get('username')
-            suc_id = Sucursal.objects.get('branch_id')
-
+            #username = User.objects.get('username')
+            #suc_id = Sucursal.objects.get('branch_id')
+            
             if coe == 'Cliente':
                 try:
                     newuser = Cliente.objects.get(customer_DNI = dni)
@@ -66,6 +67,7 @@ def register(request):
     #Si se accede a esta ruta por un método get
     else:
         form = UserRegisterForm()
+    context = {'form':form}
     return render(request, "login/registration/register.html", context)
 
 
