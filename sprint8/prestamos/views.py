@@ -7,7 +7,7 @@ from .forms import FormularioPrestamo
 from clientes.models import Cliente, TipoCliente
 from .models import Prestamos
 from cuentas.models import Cuenta
-from serializers import PrestamoSerializer
+from .serializers import PrestamoSerializer
 from empleados.serializers import SucursalSerializer
 
 # Create your views here.
