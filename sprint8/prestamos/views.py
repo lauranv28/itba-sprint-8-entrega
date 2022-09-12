@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from django.contrib import messages
+from rest_framework import viewsets, status
+from rest_framework.permissions import IsAdminUser
+from rest_framework.response import Response
 from .forms import FormularioPrestamo
-from clientes.models import TipoCliente
+from clientes.models import Cliente, TipoCliente
 from .models import Prestamos
 from cuentas.models import Cuenta
+from serializers import PrestamoSerializer
+from empleados.serializers import SucursalSerializer
 
 # Create your views here.
 def prestamos(request):
@@ -71,3 +76,26 @@ def prestamos(request):
                     if monto <= monto_limite:
                         return (Prestamos.loan_type==monto, Prestamos.loan_date==fecha_inicio, Prestamos.loan_type==tipo_prestamo, Cuenta.balance + monto, print('APROBADO')) """
     return render(request,"prestamos/prestamos.html", {'form': prestamos_form})
+
+class PrestamoViewSet(viewsets.mixins.ListModelMixin, viewsets.mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    serializer_class = PrestamoSerializer
+    def get_queryset(self):
+        id = self.request.user.id
+        user = Cliente.objects.filter(user = id)
+        try:
+            user_id = user[0].customer_id
+            return Prestamos.objects.filter(customer_id = user_id)
+        except:
+            prestamos = []
+            return prestamos
+
+class ModificaPrestamoViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAdminUser]
+    serializer_class = SucursalSerializer
+    queryset = Prestamos.objects.all()
+    lookup_field = 'loan_id'
+
+    def get(self, request, format=None):
+        prestamos = Prestamos.objects.all()
+        serializer = SucursalSerializer(prestamos, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

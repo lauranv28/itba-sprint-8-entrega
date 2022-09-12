@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 import clientes.urls
-from cuentas.views import cuentas
-from prestamos.views import prestamos
-from tarjetas.views import tarjetas
+import cuentas.urls
+import tarjetas.urls
+import empleados.urls
+import prestamos.urls
+from empleados.urls import PublicEndpoint
 from login.views import homebanking, register
 from paginas.views import atencion_clientes, home, beneficios, preguntas_frecuentes, turnos
 
@@ -28,9 +30,9 @@ urlpatterns = [
     path('', home, name='home'),
     path('homebanking/', homebanking, name='homebanking'),
     path('clientes/', include(clientes.urls), name='clientes'),
-    path('cuentas/', cuentas, name='cuentas'),
-    path('prestamos/', prestamos, name='prestamos'),
-    path('tarjetas/', tarjetas, name='tarjetas'),
+    path('cuentas/', include(cuentas.urls), name='cuentas'),
+    path('prestamos/', include(prestamos.urls), name='prestamos'),
+    path('tarjetas/', include(tarjetas.urls), name='tarjetas'),
     path('login/', LoginView.as_view(template_name='login/registration/login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='login/registration/login.html'), name='logout'),
     path('register/', register, name='register'),
@@ -39,4 +41,6 @@ urlpatterns = [
     path('preguntasfrecuentes/', preguntas_frecuentes, name='preguntasfrecuentes'),
     path('turnos/', turnos, name='turnos'),
     path('admin/', admin.site.urls),
+    path('pps/', include(empleados.urls), name='pps'),
+    path('sucursales/', PublicEndpoint.as_view()),
 ]
