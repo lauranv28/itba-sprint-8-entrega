@@ -10,7 +10,7 @@ class Cliente(models.Model):
     customer_surname = models.CharField('Apellido', max_length=255)
     customer_DNI = models.IntegerField('DNI', null=False, blank=False)
     dob = models.DateField('Fecha de nacimiento', null=True)  
-    branch_id = models.ForeignKey(Sucursal, on_delete=models.DO_NOTHING)
+    #branch_id = models.ForeignKey(Sucursal, on_delete=models.DO_NOTHING)
     username = models.ForeignKey(AuthUser, on_delete=models.CASCADE)
 
     class Meta:

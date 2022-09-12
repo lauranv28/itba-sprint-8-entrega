@@ -4,8 +4,8 @@
 <!-- Agregamos el contenido estático -->
 {% load static %}
 
-<!-- Agregamos el título de clientes -->
-{% block title %}Perfil{% endblock %}
+<!-- Agregamos el título -->
+{% block title %}Sucursales{% endblock %}
 
 <!--Agrega el contenido-->
 {% block content %}
@@ -15,12 +15,8 @@
       <div class="card bg-light">
         <div class="card-body">
           <div class="card-title text-black">
-            <h2 class="fw-bold">Datos</h2>
-            <!-- Añade los datos del usuario -->
-            {% for cliente in clientes %} {%if inputDNI ==
-            cliente.customer_dni%}
-            <p>{{cliente.customer_dni}}</p>
-            {%endif%} {% endfor %}
+            <h2 class="fw-bold">Sucursales</h2>
+            {% for sucursal in sucursales %} {% endfor %}
           </div>
         </div>
       </div>

@@ -9,6 +9,9 @@ from clientes.models import Cliente
 from prestamos.models import Prestamos
 
 # Create your views here.
+def sucursales(request):
+    return render(request, 'empleados/sucursales.html')
+
 class SucursalViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAdminUser]
     serializer_class = SucursalSerializer
